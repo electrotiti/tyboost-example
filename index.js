@@ -10,10 +10,12 @@ app.register((app)=>{
   app.use(bodyParser.json())
 })
 
-app.register(tyboost.services(__dirname + '/src/models'))
-app.register(tyboost.services(__dirname + '/src/services'))
-app.register(tyboost.routes(__dirname + '/src/controllers'))
-app.register(tyboost.middlewares(__dirname + '/src/middlewares'))
+// Register via a services definitions
+app.register(tyboost.services(require(`${__dirname}/config/services-definitions.js`)))
+
+// Register others
+app.register(tyboost.routes(`${__dirname}/src/controllers`))
+app.register(tyboost.middlewares(`${__dirname}/src/middlewares`))
 
 
 async function start () {

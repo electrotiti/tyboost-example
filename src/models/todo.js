@@ -1,6 +1,6 @@
 const uuid = require('uuid')
 
-class Todo {
+module.exports = class Todo {
 
   constructor (database) {
     this.db = database
@@ -33,5 +33,3 @@ class Todo {
     return true
   }
 }
-
-module.exports = ['todo_model', Todo, ['@database'], true]

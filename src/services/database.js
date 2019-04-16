@@ -1,6 +1,6 @@
 const NodeCache = require('node-cache')
 
-class Database {
+module.exports = class Database {
   constructor (ttl) {
     this.myCache = new NodeCache({stdTTL: ttl});
   }
@@ -69,6 +69,3 @@ class Database {
     })
   }
 }
-
-
-module.exports = ['database', Database, ['%ttl%'], true]
